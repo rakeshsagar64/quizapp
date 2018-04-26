@@ -44,7 +44,7 @@ $("#login").slideDown(1000);
 <div class="heading">
     <h4 >Candidate Detail Form</h4>
 </div>
-<form action="QuizController" method="post" >
+<form action="CandidateController" method="post" >
 <table class="table ">
 <th>
 </th>

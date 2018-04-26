@@ -2,6 +2,7 @@ package com.src.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+import com.src.model.Question;
 import com.src.model.Questions;
 import com.src.services.FactoryClass;
 import com.src.services.QuizIntr;
@@ -38,25 +41,33 @@ public class QuizController extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		
-		QuizIntr qi=FactoryClass.getInstance();
-		try {
-			
-			Map<Long,Questions>questionList=qi.fetchQuestion(courseName);
-			long questionCount=(long)questionList.keySet().size();
-			Long currentCount=new Long(1);
-			long answer=0;
-			System.out.println("setting question list "+questionList);
-			session.setAttribute("correctAnswer",answer);
-			session.setAttribute("questionCount",questionCount);
-			session.setAttribute("currentCount",currentCount);
-			session.setAttribute("questionList",questionList);
-			
-			request.getRequestDispatcher("NextQuestion").forward(request, response);
+		Gson g=new Gson();
+		Question q=new Question();
+		q.setQuestion("Queston?");
+		String[] s= {"option 1","optoin 2","option 3","option 4"};
+		q.setChoices(s);
+		q.setCorrectAnswer("option 1");
 		
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Question q1=new Question();
+		q1.setQuestion("Queston?");
+		String[] s1= {"option 1","optoin 2","option 3","option 4"};
+		q1.setChoices(s);
+		q1.setCorrectAnswer("optoin 2");
+		
+		Question q2=new Question();
+		q2.setQuestion("Queston?");
+		String[] s2= {"option 1","optoin 2","option 3","option 4"};
+		q2.setChoices(s);
+		q2.setCorrectAnswer("option 1");
+		
+		ArrayList<Question> ar=new ArrayList<>();
+		ar.add(q);
+		ar.add(q1);
+		ar.add(q2);
+		
+		String json = g.toJson(ar);
+		System.out.println(json);
+		response.getWriter().write(json);
 		
 		
 

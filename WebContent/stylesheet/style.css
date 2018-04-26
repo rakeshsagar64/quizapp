@@ -100,3 +100,34 @@
 
   
 }
+
+.question{
+	padding:2rem;
+	font-size:2rem;
+	
+}
+
+.choiceList {
+	list-style-type:none;
+		
+	
+}
+
+.choiceList li{
+	
+	padding:2rem;
+}
+.choiceList li:hover{
+	box-shadow: -3px 3px 4px 2px grey;
+  
+	border-left:5px solid red;
+	
+}
+
+
+.choiceList li:active{
+	
+	box-shadow: inset 3px 4px 2px grey;
+  
+	
+}

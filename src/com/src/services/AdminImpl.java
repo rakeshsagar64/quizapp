@@ -22,16 +22,12 @@ public class AdminImpl implements AdminIntr {
 	static{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Properties p=new Properties();
-			p.load(new FileReader("data.properties"));
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_app",p.getProperty("username"),p.getProperty("password"));
+			//Properties p=new Properties();
+			//p.load(new FileReader("data.properties"));
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_app","root","rakesh666");
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		catch(java.io.IOException io) {
-			io.printStackTrace();
-			
 		}
 			
 		
@@ -74,7 +70,7 @@ public class AdminImpl implements AdminIntr {
 	public List<Questions> fetchAllQuestion(String subject) throws SQLException{
 		subject=subject.replace(" ", "_");
 		String query ="select * from "+subject;
-		System.out.println(query);
+		System.out.println("AdminImpl.fetchAllQuestions--->"+query);
 		
 		Statement stmt=con.createStatement();
 		ResultSet rs=stmt.executeQuery(query);
@@ -116,6 +112,7 @@ public class AdminImpl implements AdminIntr {
 	
 	public int editQuestion(String subjects,Questions q) throws SQLException{
 		//must perform updaet operations
+		subjects=subjects.replace(" ","_");
 		String[] optionArray=q.getOptions();
 		String editQuestion="update "+subjects+" set question = '"+q.getQuestion()+"',option_1= '"+optionArray[0]+"',option_2='"+optionArray[1]+"',option_3='"+optionArray[2]+"',option_4='"+optionArray[3]+"',correct_ans='"+q.getCorrectAns()+"' where question='"+q.getQuestion()+"';";
 		System.out.println("edit question module "+editQuestion);

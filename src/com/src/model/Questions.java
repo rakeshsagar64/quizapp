@@ -1,5 +1,9 @@
 package com.src.model;
-
+/*
+ * model class for admin controller 
+ * where admin add questions to the db
+ * 
+ * */
 public class Questions {
 	
 	private int questionId;

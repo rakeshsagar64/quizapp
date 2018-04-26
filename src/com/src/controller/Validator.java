@@ -38,9 +38,6 @@ public class Validator extends HttpServlet {
 			response.getWriter().write("error");
 			
 		}
-		
-		
-	
 	}
 
 }

@@ -52,10 +52,10 @@ public class QuizImpl implements QuizIntr {
 	
 	
 	public Map<Long,Questions> fetchQuestion(String courseName) throws SQLException{
-		
+		courseName=courseName.replace(" ", "_");
 		Statement stmt=con.createStatement();
 		String query="select * from "+courseName;
-		System.out.println(query);
+		System.out.println("OuizImpl.fetchQuestion-->"+query);
 		
 		ResultSet rs=stmt.executeQuery(query);
 		
