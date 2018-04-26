@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -49,7 +51,8 @@ $("#login").slideDown(1000);
 <th>
 </th>
 <tr>
-
+		<!--  TODO make qualification and specialization as dropdpown-->
+		<!--TODO add html 5 validation to the form  -->
 	<td>
 	<p>Candidate Name:-</p>
 	</td>
@@ -57,11 +60,70 @@ $("#login").slideDown(1000);
 		<input type="text" class="form-control validate" placeholder="Enter the candidate name" name="name" id="name">
 
 	</td>
-	<td>
-	<span id="name_symbol"></span>
-	<p id="name_message"></p>
-	</td>
+	
 </tr>
+<tr>
+
+	<td>
+	<p> Qualification</p>
+	</td>
+	<td>
+		<input type="text" class="form-control validate" placeholder="Enter the qualification" name="qualification" id="name">
+	</td>
+	
+</tr>
+
+<tr>
+
+	<td>
+	<p>Specialization:-</p>
+	</td>
+	<td>
+		<input type="text" class="form-control validate" placeholder="Enter the specialization" name="specialization" id="name">
+
+	</td>
+	
+</tr>
+
+<tr>
+
+	<td>
+	<p>Year of passing:-</p>
+	</td>
+	<td>
+		<input type="text" class="form-control validate" placeholder="Enter the year of Completion" name="yearOfPassing" id="name">
+
+	</td>
+	
+</tr>
+
+
+<tr>
+
+	<td>
+	<p>Email:-</p>
+	</td>
+	<td>
+		<input type="text" class="form-control validate" placeholder="Enter Email" name="email" id="name">
+
+	</td>
+	
+</tr>
+
+
+<tr>
+
+	<td>
+	<p>Contact number:-</p>
+	</td>
+	<td>
+		<input type="text" class="form-control validate" placeholder="Enter Mobile number" name="contactNo" id="name">
+
+	</td>
+	
+</tr>
+
+
 <tr>
 	<td>
 	<p>Course Name:-</p>
@@ -69,6 +131,8 @@ $("#login").slideDown(1000);
 	<td>
 		<!-- <input type="text" class="form-control validate" placeholder="Enter the course name" name="coursename" id="coursename"> -->
 	<select name="coursename" class="form-control">
+				<option value="select" selected="selected">Select</option>
+		
 		<c:forEach items="${applicationScope.subjectList}" var="subject">
 		<option value="${subject}">${subject}</option>
 

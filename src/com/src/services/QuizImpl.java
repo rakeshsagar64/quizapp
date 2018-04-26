@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.src.model.Questions;
+import com.src.model.Student;
 
 public class QuizImpl implements QuizIntr {
 
@@ -72,6 +73,22 @@ public class QuizImpl implements QuizIntr {
 		
 		return questions;
 		
+	}
+
+
+	@Override
+	public int insertStudent(Student s) throws SQLException {
+		String query="insert into student_table values(null,?,?,?,?,?,?,?)";
+		System.out.println(query);
+		PreparedStatement ps = con.prepareStatement(query);
+		ps.setString(1, s.getName());
+		ps.setString(2,s.getQualification());
+		ps.setString(3, s.getSpecialization());
+		ps.setInt(4, s.getYearOfCompletion());
+		ps.setString(5, s.getEmail());
+		ps.setString(6, s.getContactNo());
+		ps.setString(7, s.getCourseName());
+		return ps.executeUpdate();
 	}
 	
 	
