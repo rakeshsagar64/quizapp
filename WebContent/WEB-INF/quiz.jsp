@@ -42,7 +42,7 @@ $("#login").slideDown(1000);
         <ul class="choiceList"></ul>
         <div class="quizMessage"></div>
         <div class="result"></div>
-        <div class="nextButton">Next Question</div>
+        <div class="nextButton button">Next Question</div>
         <br>
     </div>
 

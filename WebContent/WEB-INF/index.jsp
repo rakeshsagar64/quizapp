@@ -131,8 +131,8 @@ $("#login").slideDown(1000);
 	<td>
 		<!-- <input type="text" class="form-control validate" placeholder="Enter the course name" name="coursename" id="coursename"> -->
 	<select name="coursename" class="form-control">
-				<option value="select" selected="selected">Select</option>
-		
+				<!-- <option value="select" selected="selected">Select</option>
+		 -->
 		<c:forEach items="${applicationScope.subjectList}" var="subject">
 		<option value="${subject}">${subject}</option>
 
@@ -146,7 +146,7 @@ $("#login").slideDown(1000);
 	</td>
 <tr>
 <td>
-<button type="submit" id="submitButton" class="col-xs-offset-6 button disabled">Submit</button>
+<button type="submit" id="submitButton" class="col-xs-offset-6 button ">Submit</button>
 </td>
 </tr>
 

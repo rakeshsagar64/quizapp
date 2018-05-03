@@ -1,6 +1,7 @@
 package com.src.model;
 
 public class Student {
+	
 	private String name;
 	private String email;
 	private String contactNo;
@@ -8,6 +9,7 @@ public class Student {
 	private String specialization;
 	private int yearOfCompletion;
 	private String courseName;
+	
 	public String getName() {
 		return name;
 	}

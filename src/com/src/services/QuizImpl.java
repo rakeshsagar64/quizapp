@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.src.model.Question;
 import com.src.model.Questions;
 import com.src.model.Student;
 
@@ -52,7 +53,7 @@ public class QuizImpl implements QuizIntr {
 	//converts the resultSet into a List of questions and sends it to the frontEnd
 	
 	
-	public Map<Long,Questions> fetchQuestion(String courseName) throws SQLException{
+	public List<Question> fetchQuestion(String courseName) throws SQLException{
 		courseName=courseName.replace(" ", "_");
 		Statement stmt=con.createStatement();
 		String query="select * from "+courseName;
@@ -60,15 +61,19 @@ public class QuizImpl implements QuizIntr {
 		
 		ResultSet rs=stmt.executeQuery(query);
 		
-		Map<Long,Questions> questions=new HashMap<>();
+		List<Question> questions=new ArrayList<>();
 		long count=1;
 	
 		while(rs.next()){
+			String question=rs.getString("question");
 		//adds to an object of the question class contining the data from the result set
 			String[] options={rs.getString("option_1"),rs.getString("option_2"),rs.getString("option_3"),rs.getString("option_4")};
-				
-			questions.put(count,new Questions(rs.getString("question"),options,rs.getString("correct_ans"),rs.getBoolean("important")) );	
-			count++;
+			String answer=rs.getString("correct_ans");
+			Question q=new Question();
+			q.setQuestion(question);
+			q.setChoices(options);
+			q.setCorrectAnswer(answer);
+			questions.add(q);
 		}
 		
 		return questions;

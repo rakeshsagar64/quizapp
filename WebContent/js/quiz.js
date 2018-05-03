@@ -7,7 +7,7 @@ $(document).ready(function () {
 	
 		$.get("QuizController",function(data,status){
 			questions =JSON.parse(data);
-			
+			console.log("")
 		    displayCurrentQuestion();
 		});
 
@@ -21,6 +21,7 @@ $(document).ready(function () {
         if (!quizOver) {
             value = $("input[type='radio']:checked").val();
             if (value == undefined) {
+            	//TODO iff question not compulsory slect a default value
                 $(document).find(".quizMessage").text("Please select an answer");
                 $(document).find(".quizMessage").show();
             } else {
@@ -40,7 +41,13 @@ $(document).ready(function () {
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
                 } else {
-                    displayScore();
+                		$.get("ScoreController?correct="+correctAnswers+"&total="+questions.length,function(){
+                			console.log("display score done");
+                			
+                		});
+                	displayScore();
+                    
+                    
                     //                    $(document).find(".nextButton").toggle();
                     //                    $(document).find(".playAgainButton").toggle();
                     // Change the text in the next button to ask if user wants to play again
@@ -87,7 +94,10 @@ $(document).ready(function () {
     }
 
     function displayScore() {
-        $(document).find(".quizContainer > .result").text("You scored: " + correctAnswers + " out of: " + questions.length);
+    	
+    	
+    	
+        $(document).find(".quizContainer > .result").html("<a href='ScoreController?correct="+correctAnswers+"&total="+questions.length+"' class='button'>Submit</a>");
         $(document).find(".quizContainer > .result").show();
     }
 
