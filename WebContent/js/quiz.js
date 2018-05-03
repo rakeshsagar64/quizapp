@@ -98,7 +98,9 @@ $(document).ready(function () {
     	
     	
         $(document).find(".quizContainer > .result").html("<a href='ScoreController?correct="+correctAnswers+"&total="+questions.length+"' class='button'>Submit</a>");
+        $(document).find(".nextButton").hide();
         $(document).find(".quizContainer > .result").show();
+        
     }
 
     function hideScore() {

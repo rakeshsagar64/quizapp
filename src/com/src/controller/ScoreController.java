@@ -22,7 +22,13 @@ public class ScoreController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String correct = request.getParameter("correct");
 		String total = request.getParameter("total");
-		System.out.println(correct+"/"+total);
+		String s=correct+"/"+total;
+		request.setAttribute("score",s);
+		request.getRequestDispatcher("WEB-INF/score.jsp").forward(request, response);
+		
+		
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
