@@ -57,7 +57,7 @@ $("#login").slideDown(1000);
 	<p>Candidate Name:-</p>
 	</td>
 	<td>
-		<input type="text" class="form-control validate" placeholder="Enter the candidate name" name="name" id="name">
+		<input type="text" class="form-control validate" placeholder="Enter the candidate name" autofocus name="name" id="name" required>
 
 	</td>
 	
@@ -68,7 +68,7 @@ $("#login").slideDown(1000);
 	<p> Qualification</p>
 	</td>
 	<td>
-		<input type="text" class="form-control validate" placeholder="Enter the qualification" name="qualification" id="name">
+		<input type="text" class="form-control validate" placeholder="Enter the qualification" name="qualification" id="name" required>
 	</td>
 	
 </tr>
@@ -79,7 +79,7 @@ $("#login").slideDown(1000);
 	<p>Specialization:-</p>
 	</td>
 	<td>
-		<input type="text" class="form-control validate" placeholder="Enter the specialization" name="specialization" id="name">
+		<input type="text" class="form-control validate" placeholder="Enter the specialization" name="specialization" id="name" required>
 
 	</td>
 	
@@ -88,10 +88,10 @@ $("#login").slideDown(1000);
 <tr>
 
 	<td>
-	<p>Year of passing:-</p>
+	<p>Current Semester:-</p>
 	</td>
 	<td>
-		<input type="text" class="form-control validate" placeholder="Enter the year of Completion" name="yearOfPassing" id="name">
+		<input type="number" class="form-control validate" placeholder="Enter Current Semester " name="yearOfPassing" id="name" min="1"  max="8">
 
 	</td>
 	
@@ -104,7 +104,7 @@ $("#login").slideDown(1000);
 	<p>Email:-</p>
 	</td>
 	<td>
-		<input type="text" class="form-control validate" placeholder="Enter Email" name="email" id="name">
+		<input type="email" class="form-control validate" placeholder="Enter Email" name="email" id="name">
 
 	</td>
 	
@@ -114,10 +114,10 @@ $("#login").slideDown(1000);
 <tr>
 
 	<td>
-	<p>Contact number:-</p>
+	<p>Mobile number:-</p>
 	</td>
 	<td>
-		<input type="text" class="form-control validate" placeholder="Enter Mobile number" name="contactNo" id="name">
+		<input type="number" class="form-control validate" placeholder="Enter Mobile number" name="contactNo" id="name" min="6999999999" maxlength="10" size="10" oninvalid="this.setCustomValidity('Enter a valid mobile number')">
 
 	</td>
 	
@@ -131,8 +131,8 @@ $("#login").slideDown(1000);
 	<td>
 		<!-- <input type="text" class="form-control validate" placeholder="Enter the course name" name="coursename" id="coursename"> -->
 	<select name="coursename" class="form-control">
-				<!-- <option value="select" selected="selected">Select</option>
-		 -->
+				 <option value="select" selected="selected">Select</option>
+		 
 		<c:forEach items="${applicationScope.subjectList}" var="subject">
 		<option value="${subject}">${subject}</option>
 
@@ -146,7 +146,7 @@ $("#login").slideDown(1000);
 	</td>
 <tr>
 <td>
-<button type="submit" id="submitButton" class="col-xs-offset-6 button ">Submit</button>
+<button type="submit" id="submitButton" class="col-xs-offset-6 button">Submit</button>
 </td>
 </tr>
 

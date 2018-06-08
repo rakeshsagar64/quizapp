@@ -1,6 +1,7 @@
 package com.src.services;
 
 import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
 
 import com.src.model.AdminLogin;
 import com.src.model.Questions;
@@ -21,16 +23,17 @@ public class AdminImpl implements AdminIntr {
 
 	static{
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Properties p=new Properties();
-			//p.load(new FileReader("data.properties"));
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_app","root","rakesh666");
+			Properties p=new Properties();
+			p.load(AdminImpl.class.getResourceAsStream("db.properties"));
+			Class.forName(p.getProperty("driver"));
+			con=DriverManager.getConnection(p.getProperty("url"),p.getProperty("username"),p.getProperty("password"));
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-			
-		
 	}
 	
 

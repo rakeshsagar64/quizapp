@@ -1,5 +1,6 @@
 package com.src.services;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import com.src.model.Question;
 import com.src.model.Questions;
@@ -18,17 +20,20 @@ import com.src.model.Student;
 public class QuizImpl implements QuizIntr {
 
 	private static Connection con;
-
+	
 	static{
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_app","root","rakesh666");
+			Properties p=new Properties();
+			p.load(QuizImpl.class.getResourceAsStream("db.properties"));
+			Class.forName(p.getProperty("driver"));
+			con=DriverManager.getConnection(p.getProperty("url"),p.getProperty("username"),p.getProperty("password"));
 		} catch (ClassNotFoundException | SQLException e) {
-			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			
-		
 	}
 	
 	
