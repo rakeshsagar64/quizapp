@@ -51,7 +51,7 @@
 	
 
 
-<div class="col-xs-offset-2 col-xs-7 card">
+<div class=" card">
 <table class="table">
 
 	<form action="EditQuestionController" method="post">
@@ -60,7 +60,8 @@
 		Question
 		</td>
 		<td>
-		<input style="width:100%" type="text" name="question" placeholder="Question here" value="${questiontoedit.question}">
+		<textarea style="width:100%" type="text" name="question" placeholder="Question here" value="${questiontoedit.question}">
+		</textarea>
 		</td>
 </tr>
 <tr>
@@ -68,7 +69,8 @@
 		Option 1
 		</td>
 		<td>
-		<input type ="text"	name="option_a" placeholder="option_a" value="${questiontoedit.options[0]}">
+		<textarea type ="text"	name="option_a" placeholder="option_a" value="${questiontoedit.options[0]}">
+		</textarea>
 		</td>
 </tr>
 <tr>
@@ -76,7 +78,8 @@
 		Option 2
 		</td>
 		<td>
-		<input type ="text"	name="option_b" placeholder="option_b" value="${questiontoedit.options[1]}">
+		<textarea type ="text"	name="option_b" placeholder="option_b" value="${questiontoedit.options[1]}">
+		</textarea>
 		</td>
 </tr>
 <tr>
@@ -84,7 +87,8 @@
 		Option 3
 		</td>
 		<td>
-		<input type ="text"	name="option_c" placeholder="option_c" value="${questiontoedit.options[2]}">
+		<textarea type ="text"	name="option_c" placeholder="option_c" value="${questiontoedit.options[2]}">
+		</textarea>
 		</td>
 </tr>
 <tr>
@@ -92,7 +96,8 @@
 		Option 4
 		</td>
 		<td>
-		<input type ="text"	name="option_d" placeholder="option_d" value="${questiontoedit.options[3]}">
+		<textarea type ="text"	name="option_d" placeholder="option_d" value="${questiontoedit.options[3]}">
+		</textarea>
 		</td>
 </tr>
 <tr>

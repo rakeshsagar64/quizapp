@@ -62,7 +62,7 @@
 			Question
 		</td>
 		<td>
-			<input type="text" name="question" placeholder="Question here">
+			<textarea  name="question" placeholder="Question here"></textarea>
 		</td>
 		</tr>
 		<tr>
@@ -70,7 +70,8 @@
 		option 1
 		</td>
 		<td>
-			<input type ="text"	name="option_a" placeholder="option_a">
+			<textarea type ="text"	name="option_a" placeholder="option_a">
+			</textarea>
 		</td>
 		</tr>
 		<tr>
@@ -78,7 +79,8 @@
 		option 2
 		</td>
 		<td>
-			<input type ="text"	name="option_b" placeholder="option_b">
+			<textarea type ="text"	name="option_b" placeholder="option_b">
+		</textarea>
 		</td>
 		</tr>
 		<tr>
@@ -86,7 +88,8 @@
 		option 3
 		</td>
 		<td>
-		<input type ="text"	name="option_c" placeholder="option_c">
+		<textarea type ="text"	name="option_c" placeholder="option_c">
+		</textarea>
 		</td>
 		</tr>
 		<tr>
@@ -94,7 +97,8 @@
 		option 4
 		</td>
 		<td>
-		<input type ="text"	name="option_d" placeholder="option_d">
+		<textarea type ="text"	name="option_d" placeholder="option_d">
+		</textarea>
 		</td>
 		</tr>
 		<tr>
@@ -102,7 +106,8 @@
 		Correct Answer
 		</td>
 		<td>
-		<input type="text" name="correctanswer" placeholder="correct answer">
+		<textarea rows="" cols="" name="correctanswer"></textarea>
+		
 		</td>
 		</tr>
 		<tr>

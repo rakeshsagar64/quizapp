@@ -88,7 +88,7 @@ public class QuizImpl implements QuizIntr {
 
 	@Override
 	public int insertStudent(Student s) throws SQLException {
-		String query="insert into student_table values(null,?,?,?,?,?,?,?)";
+		String query="insert into student_table values(null,?,?,?,?,?,?,?,curdate())";
 		System.out.println(query);
 		PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, s.getName());

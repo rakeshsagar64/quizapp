@@ -44,7 +44,7 @@ public class QuestionCaller extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			request.getRequestDispatcher("WEB-INF/questions.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/admincontrols.jsp").forward(request, response);
 
 			
 		}
